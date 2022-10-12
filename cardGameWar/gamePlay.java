@@ -9,7 +9,7 @@ public class gamePlay{
     this.p1 = p1;
     this.p2 = p2;
   }
-
+//returning the string values of the cards as ints
   public int giveOrder(String a){
     if(a.equals("ace")){
       return 1;
@@ -46,6 +46,7 @@ public class gamePlay{
     String card1m = card1.substring(0, card1.indexOf(" "));
     String card2m = card2.substring(0, card2.indexOf(" "));
     Scanner input = new Scanner(System.in);
+//checks whether the value of the card player 1 is greater than that of player 2
     if(giveOrder(card1m) > giveOrder(card2m)){
       System.out.println(p1.getName() + " put " + card1 + " and " + p2.getName() + " put " + card2);
       System.out.println(p1.getName() + " wins this round!");
@@ -53,11 +54,13 @@ public class gamePlay{
     System.out.println("# of cards " + p1.getName() + " has: " + (p1.getDeck().size()));
     System.out.println("# of cards " + p2.getName() + " has: " + (p2.getDeck().size()));
       input.nextLine();
+//the player has more than zero cards wins
     if(winner().length() != 0){
         System.out.println(winner());
       return "success";
      }
       return "success";
+   //checks whether the value of the card player 2 is greater than that of player 1
     } else if(giveOrder(card1m) < giveOrder(card2m)){
         System.out.println(p1.getName() + " put " + card1 + " and " + p2.getName() + " put " + card2);
       System.out.println(p2.getName() + " wins this round!");
@@ -143,8 +146,8 @@ public class gamePlay{
     deckp2.remove(deck1);
     p1.modifyDeck(deckp2);
   }  
-
   
+//when a player gets all 52 cards, they are declared winner
   public String winner(){
     if(p1.getDeck().size() == 52){
       return (p1.getName() + " wins this game!");
